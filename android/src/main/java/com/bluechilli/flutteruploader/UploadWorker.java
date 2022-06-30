@@ -158,7 +158,12 @@ public class UploadWorker extends ListenableWorker implements CountProgressListe
                   null));
         }
 
-        String mimeType = GetMimeType(item.getPath());
+        String mimeType = headers.get("Content-Type");
+
+        if(mimeType == null || mimeType == "") {
+          mimeType = GetMimeType(item.getPath());
+        }
+
         MediaType contentType = MediaType.parse(mimeType);
         innerRequestBody = RequestBody.create(file, contentType);
       } else {
