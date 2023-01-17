@@ -3,6 +3,7 @@ part of flutter_uploader;
 /// Controls task scheduling and allows developers to observe the status.
 /// The class is designed as a singleton and can therefore be instantiated as
 /// often as needed.
+@pragma('vm:entry-point')
 class FlutterUploader {
   final MethodChannel _platform;
   final EventChannel _progressChannel;
